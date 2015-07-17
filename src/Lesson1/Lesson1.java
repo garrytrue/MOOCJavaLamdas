@@ -120,4 +120,5 @@ public class Lesson1 {
         Lesson1 lesson = new Lesson1();
         lesson.runExercises();
     }
+//    some changes
 }
