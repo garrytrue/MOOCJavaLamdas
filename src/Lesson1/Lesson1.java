@@ -49,7 +49,7 @@ public class Lesson1 {
                 "alpha", "bravo", "charlie", "delta", "echo", "foxtrot");
         StringBuilder sb = new StringBuilder(6);
         list.forEach(c -> sb.append(c.charAt(0)));
-        System.out.println(sb.toString());
+        System.out.println(sb);
 
 
     }
@@ -62,7 +62,7 @@ public class Lesson1 {
     private void exercise2() {
         List<String> list = new ArrayList<>(Arrays.asList(
                 "alpha", "bravo", "charlie", "delta", "echo", "foxtrot"));
-        list.removeIf(p -> p.length() % 2 == 0);
+        list.removeIf(p -> p.length() % 2 != 0);
         System.out.println(list.toString());
 
 
@@ -95,7 +95,7 @@ public class Lesson1 {
         map.forEach((s, i) -> {
             sb.append(s).append(i);
         });
-        System.out.println(sb.toString());
+        System.out.println(sb);
     }
 
     /**
@@ -105,10 +105,9 @@ public class Lesson1 {
      */
     private void exercise5() {
         List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-        Runnable printTask = () -> {
-            list.forEach(integer -> System.out.print(integer));
-        };
-        new Thread(printTask).run();
+        new Thread(() -> {
+            list.forEach(System.out::print);
+        }).start();
     }
 
     /**
